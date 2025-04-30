@@ -57,8 +57,7 @@ def handle_message(event):
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         if text == '選單':
-            Menu_icon = request.url_root + 'static/Menu.png'
-            Menu_icon = Menu_icon.replace("http", "https")
+            Menu_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu.png"
 
             quickReply = QuickReply(
                 items=[
