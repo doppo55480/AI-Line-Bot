@@ -77,7 +77,7 @@ def handle_message(event):
                     reply_token=event.reply_token,
                     messages=[TextMessage(
                         text='請選一個選項👇',
-                        quick_reply=quickReply0
+                        quick_reply=quickReply
                     )]
                 )
             )
