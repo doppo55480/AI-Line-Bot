@@ -94,13 +94,14 @@ def handle_message(event):
             )
 
         elif text == '菜單圖片':
+            url = 'https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_大圖.png'
+            app.logger.info("url=" + url)
             line_bot_api.reply_message(
                 ReplyMessageRequest(
                     reply_token=event.reply_token,
-                    messages=[ImageMessage(
-                        original_content_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_大圖.png',
-                        preview_image_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_縮圖.png'
-                    )]
+                    messages=[
+                        ImageMessage(original_content_url=url, preview_image_url=url)
+                    ]
                 )
             )
 
