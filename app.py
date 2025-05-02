@@ -94,7 +94,7 @@ def handle_message(event):
             )
 
         elif text == '菜單圖片':
-            url = 'https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_大圖.png'
+            url = 'https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_Ori.png'
             app.logger.info("url=" + url)
             line_bot_api.reply_message(
                 ReplyMessageRequest(
