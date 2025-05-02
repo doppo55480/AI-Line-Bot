@@ -57,8 +57,10 @@ def handle_message(event):
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         if text == '選單':
-            Menu_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu.png"
+            Menu_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_icon.png"
+            Products_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Products_icon.png"
 
+            #選單一(品項)
             quickReply = QuickReply(
                 items=[
                     QuickReplyItem(
@@ -66,11 +68,28 @@ def handle_message(event):
                             label="全品項",
                             text="全品項"
                         ),
+                        image_url=Products_icon
+                    )
+                ]
+            )
+            #選單二(菜單)
+            quickReply = QuickReply(
+                items=[
+                    QuickReplyItem(
+                        action=MessageAction(
+                            label="菜單",
+                            imageMessage={
+  type: 'image',
+  originalContentUrl: 'https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_大圖.png',
+  previewImageUrl: 'https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_縮圖.png'
+}
+                        ),
                         image_url=Menu_icon
                     )
                 ]
             )
-            
+
+            #接收到"選單"後出現所有選項
             line_bot_api.reply_message(
                 ReplyMessageRequest(
                     reply_token=event.reply_token,
