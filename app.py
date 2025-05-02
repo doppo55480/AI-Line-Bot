@@ -11,6 +11,7 @@ from linebot.v3.messaging import (
     MessagingApi,
     ReplyMessageRequest,
     TextMessage,
+    ImageMessage,
     QuickReply,
     QuickReplyItem,
     PostbackAction,
@@ -69,20 +70,12 @@ def handle_message(event):
                             text="全品項"
                         ),
                         image_url=Products_icon
-                    )
-                ]
-            )
-            #選單二(菜單)
-            quickReply = QuickReply(
-                items=[
+                    ),
+                    #選單二(菜單)
                     QuickReplyItem(
                         action=MessageAction(
                             label="菜單",
-                            imageMessage={
-  type: 'image',
-  originalContentUrl: 'https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_大圖.png',
-  previewImageUrl: 'https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_縮圖.png'
-}
+                            text="菜單圖片"
                         ),
                         image_url=Menu_icon
                     )
@@ -99,6 +92,18 @@ def handle_message(event):
                     )]
                 )
             )
+
+        elif text == '菜單圖片':
+            line_bot_api.reply_message(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[ImageMessage(
+                        original_content_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_大圖.png',
+                        preview_image_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_縮圖.png'
+                    )]
+                )
+            )
+
 
 @line_handler.add(PostbackEvent)
 def handle_postback(event):
