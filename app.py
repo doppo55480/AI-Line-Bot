@@ -58,8 +58,8 @@ def handle_message(event):
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
         if text == '選單':
-            Menu_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_icon.png"
-            Products_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Products_icon.png"
+            Menu_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_icon.png"
+            Products_icon = "https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Products_icon.png"
 
             #選單一(品項)
             quickReply = QuickReply(
@@ -98,8 +98,8 @@ def handle_message(event):
                 ReplyMessageRequest(
                     reply_token=event.reply_token,
                     messages=[ImageMessage(
-                        original_content_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_大圖.png',
-                        preview_image_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/refs/heads/main/static/Menu_縮圖.png'
+                        original_content_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_大圖.png',
+                        preview_image_url='https://raw.githubusercontent.com/doppo55480/AI-Line-Bot/main/static/Menu_縮圖.png'
                     )]
                 )
             )
