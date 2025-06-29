@@ -75,9 +75,9 @@ def handle_message(event):
                     QuickReplyItem(
                         action=MessageAction(
                             label="菜單",
-                            text="菜單圖片"
+                            text="菜單"
                         ),
-                        image_url=Menu_icon
+                        #image_url=Menu_icon
                     )
                 ]
             )
